@@ -79,6 +79,7 @@ flutter:
 
   assets:
     - lib/resources/json/
+    - assets/gif/
     - assets/images/category_icons/
     - assets/images/category_images/
     - assets/images/other_images/

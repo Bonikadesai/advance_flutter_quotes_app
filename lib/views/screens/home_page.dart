@@ -25,7 +25,6 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  /// widget list
   final List<Widget> bottomBarPages = [
     HomeScreen(),
     FavoritePage(),
@@ -35,69 +34,59 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: PageView(
-          controller: pageController,
-          //physics: const NeverScrollableScrollPhysics(),
-          children: List.generate(
-              bottomBarPages.length, (index) => bottomBarPages[index]),
-        ),
-        extendBody: true,
-        bottomNavigationBar: // (bottomBarPages.length <= maxCount)
-            AnimatedNotchBottomBar(
-          /// Provide NotchBottomBarController
-          notchBottomBarController: notchBottomBarController,
-          color: Colors.white,
-          showLabel: true,
-          //notchColor: Colors.black87,
-
-          /// restart app if you change removeMargins
-          removeMargins: false,
-          bottomBarWidth: 500,
-          durationInMilliSeconds: 300,
-          bottomBarItems: [
-            const BottomBarItem(
-              inActiveItem: Icon(
-                Icons.home_filled,
-                color: Colors.blueGrey,
-              ),
-              activeItem: Icon(
-                Icons.home_filled,
-                color: Colors.blueAccent,
-              ),
-              itemLabel: 'Home',
+      body: PageView(
+        controller: pageController,
+        children: List.generate(
+            bottomBarPages.length, (index) => bottomBarPages[index]),
+      ),
+      extendBody: true,
+      bottomNavigationBar: AnimatedNotchBottomBar(
+        notchBottomBarController: notchBottomBarController,
+        color: Colors.white,
+        showLabel: true,
+        removeMargins: false,
+        bottomBarWidth: 500,
+        durationInMilliSeconds: 300,
+        bottomBarItems: [
+          const BottomBarItem(
+            inActiveItem: Icon(
+              Icons.home_filled,
+              color: Colors.blueGrey,
             ),
-            const BottomBarItem(
-              inActiveItem: Icon(
-                Icons.favorite_outline,
-                color: Colors.blueGrey,
-              ),
-              activeItem: Icon(
-                Icons.favorite_outline,
-                color: Colors.blueAccent,
-              ),
-              itemLabel: 'Favorite',
+            activeItem: Icon(
+              Icons.home_filled,
+              color: Colors.blueAccent,
             ),
-
-            ///svg example
-            BottomBarItem(
-              inActiveItem: Icon(
-                Icons.settings,
-                color: Colors.blueGrey,
-              ),
-              activeItem: Icon(
-                Icons.settings,
-                color: Colors.blueAccent,
-              ),
-              itemLabel: ''
-                  'Setting',
+            itemLabel: 'Home',
+          ),
+          const BottomBarItem(
+            inActiveItem: Icon(
+              Icons.favorite_outline,
+              color: Colors.blueGrey,
             ),
-          ],
-          onTap: (index) {
-            /// perform action on tab change and to update pages you can update pages without pages
-            pageController.jumpToPage(index);
-          },
-        )
-        //: null,
-        );
+            activeItem: Icon(
+              Icons.favorite_outline,
+              color: Colors.blueAccent,
+            ),
+            itemLabel: 'Favorite',
+          ),
+          BottomBarItem(
+            inActiveItem: Icon(
+              Icons.settings,
+              color: Colors.blueGrey,
+            ),
+            activeItem: Icon(
+              Icons.settings,
+              color: Colors.blueAccent,
+            ),
+            itemLabel: ''
+                'Setting',
+          ),
+        ],
+        onTap: (index) {
+          pageController.jumpToPage(index);
+        },
+      ),
+    );
   }
 }

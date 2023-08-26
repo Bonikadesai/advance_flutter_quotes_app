@@ -30,6 +30,7 @@ class _CategoryPageState extends State<CategoryPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           categoryName!,
           style: const TextStyle(
@@ -209,9 +210,6 @@ class _CategoryPageState extends State<CategoryPage> {
                                               (value) => Get.snackbar(
                                                 "Saved",
                                                 "Image saved successfully in gallery...",
-                                                snackPosition:
-                                                    SnackPosition.BOTTOM,
-                                                backgroundColor: Colors.green,
                                               ),
                                             );
                                       },

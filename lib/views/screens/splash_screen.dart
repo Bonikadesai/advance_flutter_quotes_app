@@ -23,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/other_images/splash_screen.png",
+              "assets/gif/splesh.gif",
               height: height * 0.32,
               width: height * 0.32,
             ),
@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
               height: height * 0.025,
             ),
             Text(
-              "DQuotes",
+              "Quotes",
               style: TextStyle(
                 fontSize: height * 0.036,
                 fontWeight: FontWeight.bold,
@@ -41,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
-      backgroundColor: const Color(0xffadf6f7),
+      backgroundColor: Colors.white,
     );
   }
 }

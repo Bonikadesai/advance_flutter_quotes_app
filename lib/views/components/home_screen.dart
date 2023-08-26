@@ -43,66 +43,47 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Container(
-                //   width: double.infinity,
-                //   height: 60,
-                //   decoration: BoxDecoration(
-                //       color: Colors.white,
-                //       borderRadius: BorderRadius.circular(5)),
-                //   child: Center(
-                //     child: TextFormField(
-                //       controller: searchCategoryController,
-                //       onChanged: (value) {
-                //         setState(() {
-                //           fetchAllCategory = DBHelper.dbHelper
-                //               .fetchSearchCategory(data: value);
-                //         });
-                //       },
-                //       scrollPhysics: const BouncingScrollPhysics(),
-                //       decoration: InputDecoration(
-                //         prefixIcon: const Icon(Icons.search),
-                //         hintText: "Search...",
-                //         hintStyle: const TextStyle(
-                //           fontWeight: FontWeight.w400,
-                //         ),
-                //         border: OutlineInputBorder(
-                //           borderRadius: BorderRadius.all(
-                //             Radius.circular(width * 0.08),
-                //           ),
-                //         ),
-                //         suffixIcon: IconButton(
-                //           onPressed: () {
-                //             setState(() {
-                //               searchCategoryController.clear();
-                //               fetchAllCategory =
-                //                   DBHelper.dbHelper.fetchAllCategory();
-                //             });
-                //           },
-                //           icon: const Icon(Icons.clear),
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                AnimatedSearch(
+                Container(
                   width: double.infinity,
-                  textEditingController: searchCategoryController,
-                  startIcon: Icons.search,
-                  closeIcon: Icons.close,
-                  iconColor: Colors.black,
-                  cursorColor: Colors.black,
-                  decoration: InputDecoration(
-                    hintText: 'Search',
-                    hintStyle: TextStyle(color: Colors.black),
-                    border: InputBorder.none,
+                  height: 60,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30)),
+                  child: Center(
+                    child: TextFormField(
+                      controller: searchCategoryController,
+                      onChanged: (value) {
+                        setState(() {
+                          fetchAllCategory = DBHelper.dbHelper
+                              .fetchSearchCategory(data: value);
+                        });
+                      },
+                      scrollPhysics: const BouncingScrollPhysics(),
+                      decoration: InputDecoration(
+                        prefixIcon: const Icon(Icons.search),
+                        hintText: "Search...",
+                        hintStyle: const TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(width * 0.08),
+                          ),
+                        ),
+                        suffixIcon: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              searchCategoryController.clear();
+                              fetchAllCategory =
+                                  DBHelper.dbHelper.fetchAllCategory();
+                            });
+                          },
+                          icon: const Icon(Icons.clear),
+                        ),
+                      ),
+                    ),
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      fetchAllCategory =
-                          DBHelper.dbHelper.fetchSearchCategory(data: value);
-                    });
-                    // handle search query
-                  },
                 ),
                 SizedBox(
                   height: 30,
