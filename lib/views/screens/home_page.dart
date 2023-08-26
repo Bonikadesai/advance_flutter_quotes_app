@@ -43,9 +43,6 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: AnimatedNotchBottomBar(
         notchBottomBarController: notchBottomBarController,
         color: Colors.white,
-        showLabel: true,
-        removeMargins: false,
-        bottomBarWidth: 500,
         durationInMilliSeconds: 300,
         bottomBarItems: [
           const BottomBarItem(
